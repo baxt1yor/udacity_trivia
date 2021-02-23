@@ -5,6 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 from flaskr import create_app
 from models import setup_db, Question, Category
+from settings import DB_NAME_TEST, DB_USER, DB_ADDRESS
 
 
 class TriviaTestCase(unittest.TestCase):
@@ -21,8 +22,7 @@ class TriviaTestCase(unittest.TestCase):
         """Define test variables and initialize app."""
         self.app = create_app()
         self.client = self.app.test_client
-        self.database_name = "trivia_test"
-        self.database_path = "postgresql://{}@{}/{}".format('postgres', 'localhost:5432', self.database_name)
+        self.database_path = "postgresql://{}@{}/{}".format(DB_USER, DB_ADDRESS, DB_NAME_TEST)
         setup_db(self.app, self.database_path)
 
         # binds the app to the current context
@@ -70,17 +70,19 @@ class TriviaTestCase(unittest.TestCase):
                             difficulty=self.new_question['difficulty'], category=self.new_question['category'])
 
         question.insert()
-        delete_question_test = Question.query.filter(Question.id == question.id).one_or_none()
+        q_id = question.id
 
-        res = self.client().delete(f'question/{question.id}')
+        delete_question_test = Question.query.filter(Question.id == q_id).one_or_none()
+
+        res = self.client().delete(f'questions/{q_id}')
 
         data = json.loads(res.data)
 
-        real_delete_question = Question.query.filter(Question.id==question.id).one_or_none()
+        real_delete_question = Question.query.filter(Question.id==q_id).one_or_none()
 
         self.assertTrue(self.check_success(res, data))
 
-        self.assertTrue(data['deleted'], question.id)
+        self.assertTrue(data['deleted'], q_id)
 
         self.assertTrue(delete_question_test)
         self.assertEqual(real_delete_question, None)

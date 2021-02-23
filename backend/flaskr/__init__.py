@@ -121,7 +121,7 @@ def create_app(test_config=None):
 
       return jsonify({
         "success":True,
-        "delete":id
+        "deleted":id
         })
     except:
       abort(422)
@@ -305,7 +305,7 @@ def create_app(test_config=None):
       "success" : False,
       "error" : 400,
       "message":"Bad request"
-      })
+      }), 400
 
   @app.errorhandler(404)
   def error_404(error):
@@ -313,7 +313,7 @@ def create_app(test_config=None):
       "success": False,
       "error":404,
       "message": "Not Found"
-      })
+      }), 404
 
   @app.errorhandler(422)
   def error_422(error):
@@ -321,7 +321,7 @@ def create_app(test_config=None):
       "success":False,
       "error": 422,
       "message":"Unprocessable"
-      })
+      }), 422
 
   @app.errorhandler(500)
   def error_500(error):
@@ -329,7 +329,7 @@ def create_app(test_config=None):
       "success": False,
       "error":500,
       "message": "Internal Server Error"
-      })
+      }), 500
 
 
   return app
