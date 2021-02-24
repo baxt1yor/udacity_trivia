@@ -67,8 +67,9 @@ Omit the dropdb command the first time you run tests.
 ## API Reference
 
 ### Getting Started
-	* Base URL: Currently this application is only hosted locally. The backend is hosted at [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
-	* Authentication: This version does not require authentication or API keys.
+* Base URL: Currently this application is only hosted locally. The backend is hosted at [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
+* Authentication: This version does not require authentication or API keys.
+
 ### Error Handling
 Errors are returned as JSON in the following format:
 
@@ -81,47 +82,47 @@ Errors are returned as JSON in the following format:
 ```
 
 The API will return four types of errors:
-	* 400 – Bad Request
-	* 404 – Not Found
-	* 422 – Unprocessable
-	* 500 - Internal Server Error
+* 400 – Bad Request
+* 404 – Not Found
+* 422 – Unprocessable
+* 500 - Internal Server Error
 
 ## Endpoints
 
 #### GET /categories
-	* General: Returns a list categories.
-	* Sample: `curl http://127.0.0.1:5000/categories`
 
-	
-		{
-	      "categories": {
-	          "1": "Science", 
-	          "2": "Art", 
-	          "3": "Geography", 
-	          "4": "History", 
-	          "5": "Entertainment", 
-	          "6": "Sports"
-	      }, 
-	      "success": true
- 		}
+* General: Returns a list categories.
+* Sample: `curl http://127.0.0.1:5000/categories`
 
+```bash
+{
+    "categories": {
+        "1": "Science", 
+        "2": "Art", 
+        "3": "Geography", 
+        "4": "History", 
+        "5": "Entertainment", 
+        "6": "Sports"
+    }, 
+    "success": true
+}
+```
 
 ### GET /questions
-	* General:
-
-		* Returns a list questions.
-		* Results are paginated in groups of 10.
-		* Also returns list of categories and total number of questions.
-	* Sample: curl http://127.0.0.1:5000/questions
+* General:
+  * Returns a list questions.
+	* Results are paginated in groups of 10.
+	* Also returns list of categories and total number of questions.
+* Sample: curl http://127.0.0.1:5000/questions
 
 	
 
 ### DELETE /questions/<int:id>
-	* General:
-    * Deletes a question by id using url parameters.
-		* Returns id of deleted question upon success.
+* General:
+  * Deletes a question by id using url parameters.
+	* Returns id of deleted question upon success.
 
-	* Sample: curl http://127.0.0.1:5000/questions/1 -X DELETE
+* Sample: curl http://127.0.0.1:5000/questions/1 -X DELETE
 		
 ```bash
 		  {
