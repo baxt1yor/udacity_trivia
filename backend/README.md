@@ -210,10 +210,10 @@ The API will return four types of errors:
 * Sample: `curl http://127.0.0.1:5000/questions/1 -X DELETE`
 		
 ```bash
-		  {
-		      "deleted": 1, 
-		      "success": true
-		  }
+{
+ "deleted": 1, 
+ "success": true
+}
 ```
 
 ### POST /questions
