@@ -137,16 +137,15 @@ This endpoint either creates a new question or returns search results.
 * General:
 	* Creates a new question using JSON request parameters.
 	* Returns JSON object with newly created question, as well as paginated questions.
-* Sample: ```
-curl http://127.0.0.1:5000/questions -X POST -H "Content-Type: application/json" -d '{ "question": "Why it is work site udacity?", "answer": "Test answe", "difficulty": 2, "category": "3" }'
-```
+* Sample: `
+curl http://127.0.0.1:5000/questions -X POST -H "Content-Type: application/json" -d '{ "question": "Why it is work site udacity?", "answer": "Test answe", "difficulty": 2, "category": "3" }'`
 
 2.If search term is included in request:
 * General:
   * Searches for questions using search term in JSON request parameters.
 	* Returns JSON object with paginated matching questions.
 
-* Sample: ``` curl http://127.0.0.1:5000/questions -X POST -H "Content-Type: application/json" -d '{"searchTerm": "Mahal"}' ```
+* Sample: ` curl http://127.0.0.1:5000/questions -X POST -H "Content-Type: application/json" -d '{"searchTerm": "Mahal"}' `
 
 ```bash
   {
