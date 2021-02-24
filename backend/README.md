@@ -64,14 +64,15 @@ python test_flaskr.py
 
 Omit the dropdb command the first time you run tests.
 
-##API Reference
-###Getting Started
+## API Reference
+
+### Getting Started
 	- Base URL: Currently this application is only hosted locally. The backend is hosted at http://127.0.0.1:5000/
 	- Authentication: This version does not require authentication or API keys.
-###Error Handling
+### Error Handling
 Errors are returned as JSON in the following format:
 
-```
+```bash
 {
     "success": False,
     "error": 404,
@@ -85,13 +86,13 @@ The API will return four types of errors:
 	- 422 – Unprocessable
 	- 500 - Internal Server Error
 
-##Endpoints
+## Endpoints
 
-####GET /categories
+#### GET /categories
 	- General: Returns a list categories.
-	- Sample: ```bash curl http://127.0.0.1:5000/categories```
+	- Sample: ``` curl http://127.0.0.1:5000/categories```
 
-	```
+	
 		{
 	      "categories": {
 	          "1": "Science", 
@@ -103,9 +104,9 @@ The API will return four types of errors:
 	      }, 
 	      "success": true
  		}
-	```
 
-###GET /questions
+
+### GET /questions
 	- General:
 
 		- Returns a list questions.
@@ -201,7 +202,7 @@ The API will return four types of errors:
   }
 	```
 
-###DELETE /questions/<int:id>
+### DELETE /questions/<int:id>
 	- General:
 
 		- Deletes a question by id using url parameters.
@@ -214,7 +215,7 @@ The API will return four types of errors:
 		  }
 		```
 
-###POST /questions
+### POST /questions
 This endpoint either creates a new question or returns search results.
 1.If no search term is included in request:
 - General:
@@ -246,7 +247,7 @@ curl http://127.0.0.1:5000/questions -X POST -H "Content-Type: application/json"
     "total_questions": 19
   }
   ```
-###GET /categories/<int:id>/questions
+### GET /categories/<int:id>/questions
 - General:
 
 		- Gets questions by category id using url parameters.
@@ -283,7 +284,7 @@ curl http://127.0.0.1:5000/questions -X POST -H "Content-Type: application/json"
   }
 ```
 
-###POST /quizzes
+### POST /quizzes
 - General:
 
 		- Allows users to play the quiz game.
@@ -304,5 +305,5 @@ curl http://127.0.0.1:5000/questions -X POST -H "Content-Type: application/json"
   }
 ```
 
-##Authors
+## Authors
 Baxtiyor Eshametov authored the API (__init__.py), test suite (test_flaskr.py), and this README. All other project files, including the models and frontend, were created by [Udacity](https://www.udacity.com/) as a project template for the [Full Stack Web Developer Nanodegree](https://www.udacity.com/course/full-stack-web-developer-nanodegree--nd0044).
