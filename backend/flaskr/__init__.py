@@ -52,7 +52,7 @@ def create_app(test_config=None):
     categorie_dict = {}
 
     for categorie in categories:
-      categorie_dict[categorie.id] = categorie.type
+      categorie_dict[f"{categorie.id}"] = categorie.type
 
     if len(categorie_dict) == 0:
       abort(404)
