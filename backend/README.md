@@ -118,17 +118,17 @@ The API will return four types of errors:
 
 ### DELETE /questions/<int:id>
 	* General:
-
-		* Deletes a question by id using url parameters.
+    * Deletes a question by id using url parameters.
 		* Returns id of deleted question upon success.
+
 	* Sample: curl http://127.0.0.1:5000/questions/1 -X DELETE
 		
-    ```bash
+```bash
 		  {
 		      "deleted": 1, 
 		      "success": true
 		  }
-		```
+```
 
 ### POST /questions
 This endpoint either creates a new question or returns search results.
@@ -142,9 +142,9 @@ curl http://127.0.0.1:5000/questions -X POST -H "Content-Type: application/json"
 
 2.If search term is included in request:
 * General:
-
-	* Searches for questions using search term in JSON request parameters.
+  * Searches for questions using search term in JSON request parameters.
 	* Returns JSON object with paginated matching questions.
+
 * Sample: ``` curl http://127.0.0.1:5000/questions -X POST -H "Content-Type: application/json" -d '{"searchTerm": "Mahal"}' ```
 
 ```bash
@@ -161,12 +161,13 @@ curl http://127.0.0.1:5000/questions -X POST -H "Content-Type: application/json"
     "success": true,
     "total_questions": 19
   }
-  ```
+```
+
 ### GET /categories/<int:id>/questions
 * General:
+  * Gets questions by category id using url parameters.
+	* Returns JSON object with paginated matching questions.
 
-		* Gets questions by category id using url parameters.
-		* Returns JSON object with paginated matching questions.
 * Sample: ```bash curl http://127.0.0.1:5000/categories/1/questions ```
 ```bash
   {
