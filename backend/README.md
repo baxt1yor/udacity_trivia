@@ -67,7 +67,7 @@ Omit the dropdb command the first time you run tests.
 ## API Reference
 
 ### Getting Started
-	- Base URL: Currently this application is only hosted locally. The backend is hosted at http://127.0.0.1:5000/
+	- Base URL: Currently this application is only hosted locally. The backend is hosted at [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
 	- Authentication: This version does not require authentication or API keys.
 ### Error Handling
 Errors are returned as JSON in the following format:
@@ -90,7 +90,7 @@ The API will return four types of errors:
 
 #### GET /categories
 	- General: Returns a list categories.
-	- Sample: ``` curl http://127.0.0.1:5000/categories```
+	- Sample: `curl http://127.0.0.1:5000/categories`
 
 	
 		{
