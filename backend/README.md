@@ -66,12 +66,12 @@ Omit the dropdb command the first time you run tests.
 
 ##API Reference
 ###Getting Started
-	-Base URL: Currently this application is only hosted locally. The backend is hosted at http://127.0.0.1:5000/
-	-Authentication: This version does not require authentication or API keys.
+	- Base URL: Currently this application is only hosted locally. The backend is hosted at http://127.0.0.1:5000/
+	- Authentication: This version does not require authentication or API keys.
 ###Error Handling
 Errors are returned as JSON in the following format:
 
-```bash
+```
 {
     "success": False,
     "error": 404,
@@ -80,17 +80,18 @@ Errors are returned as JSON in the following format:
 ```
 
 The API will return four types of errors:
-	-400 – Bad Request
-	-404 – Not Found
-	-422 – Unprocessable
-	-500 - Internal Server Error
+	- 400 – Bad Request
+	- 404 – Not Found
+	- 422 – Unprocessable
+	- 500 - Internal Server Error
 
 ##Endpoints
-####GET /categories
-	-General: Returns a list categories.
-	-Sample: ```bash curl http://127.0.0.1:5000/categories```
 
-	```bash
+####GET /categories
+	- General: Returns a list categories.
+	- Sample: ```bash curl http://127.0.0.1:5000/categories```
+
+	```
 		{
 	      "categories": {
 	          "1": "Science", 
@@ -105,14 +106,14 @@ The API will return four types of errors:
 	```
 
 ###GET /questions
-	-General:
+	- General:
 
-		-Returns a list questions.
-		-Results are paginated in groups of 10.
-		-Also returns list of categories and total number of questions.
-	-Sample: curl http://127.0.0.1:5000/questions
+		- Returns a list questions.
+		- Results are paginated in groups of 10.
+		- Also returns list of categories and total number of questions.
+	- Sample: curl http://127.0.0.1:5000/questions
 
-	```bash
+	```
 
   {
     "categories": {
@@ -201,12 +202,12 @@ The API will return four types of errors:
 	```
 
 ###DELETE /questions/<int:id>
-	-General:
+	- General:
 
-		-Deletes a question by id using url parameters.
-		-Returns id of deleted question upon success.
-	-Sample: curl http://127.0.0.1:5000/questions/1 -X DELETE
-		```bash
+		- Deletes a question by id using url parameters.
+		- Returns id of deleted question upon success.
+	- Sample: curl http://127.0.0.1:5000/questions/1 -X DELETE
+		```
 		  {
 		      "deleted": 1, 
 		      "success": true
@@ -216,19 +217,19 @@ The API will return four types of errors:
 ###POST /questions
 This endpoint either creates a new question or returns search results.
 1.If no search term is included in request:
--General:
-	-Creates a new question using JSON request parameters.
-	-Returns JSON object with newly created question, as well as paginated questions.
--Sample: ```bash
+- General:
+	- Creates a new question using JSON request parameters.
+	- Returns JSON object with newly created question, as well as paginated questions.
+- Sample: ```
 curl http://127.0.0.1:5000/questions -X POST -H "Content-Type: application/json" -d '{ "question": "Why it is work site udacity?", "answer": "Test answe", "difficulty": 2, "category": "3" }'
 ```
 
 2.If search term is included in request:
--General:
+- General:
 
-	-Searches for questions using search term in JSON request parameters.
-	-Returns JSON object with paginated matching questions.
--Sample: ```bash curl http://127.0.0.1:5000/questions -X POST -H "Content-Type: application/json" -d '{"searchTerm": "Mahal"}' ```
+	- Searches for questions using search term in JSON request parameters.
+	- Returns JSON object with paginated matching questions.
+-Sample: ``` curl http://127.0.0.1:5000/questions -X POST -H "Content-Type: application/json" -d '{"searchTerm": "Mahal"}' ```
 
 ```bash
   {
@@ -246,11 +247,11 @@ curl http://127.0.0.1:5000/questions -X POST -H "Content-Type: application/json"
   }
   ```
 ###GET /categories/<int:id>/questions
--General:
+- General:
 
-		-Gets questions by category id using url parameters.
-		-Returns JSON object with paginated matching questions.
--Sample: ```bash curl http://127.0.0.1:5000/categories/1/questions ```
+		- Gets questions by category id using url parameters.
+		- Returns JSON object with paginated matching questions.
+- Sample: ```bash curl http://127.0.0.1:5000/categories/1/questions ```
 ```bash
   {
     "current_category": "Science",
@@ -283,12 +284,12 @@ curl http://127.0.0.1:5000/questions -X POST -H "Content-Type: application/json"
 ```
 
 ###POST /quizzes
--General:
+- General:
 
-		-Allows users to play the quiz game.
-		-Uses JSON request parameters of category and previous questions.
-		-Returns JSON object with random question not among previous questions.
--Sample: ```bash curl http://127.0.0.1:5000/quizzes -X POST -H "Content-Type: application/json" -d '{"previous_questions":[20] ,"quiz_category":{"type":"Science","id":"1"}}'```
+		- Allows users to play the quiz game.
+		- Uses JSON request parameters of category and previous questions.
+		- Returns JSON object with random question not among previous questions.
+- Sample: ```bash curl http://127.0.0.1:5000/quizzes -X POST -H "Content-Type: application/json" -d '{"previous_questions":[20] ,"quiz_category":{"type":"Science","id":"1"}}'```
 
 ```bash
   {
